@@ -7,12 +7,12 @@ import * as React from "react";
 * This component is attached to the /about path in router.jsx
 */
 
-export default function About() {
+export default function Idol() {
   /* DECLARE STYLE AND TRIGGER FOR WIGGLE EFFECT FROM TODO ON NEXT LINE */
   
   return (
     <>
-      About
+      Idol
     </>
   );
 }
