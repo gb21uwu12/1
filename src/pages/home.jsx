@@ -9,6 +9,11 @@ import * as React from "react";
 
 export default function Home() {
   /* DECLARE STYLE AND TRIGGER FOR WIGGLE EFFECT FROM TODO ON NEXT LINE */
+  React.useEffect(() => {
+     fetch('https://api.mydomain.com')
+      .then(response => response.json())
+      .then(data => console.log(data));
+  },[])
   
   return (
     <>
