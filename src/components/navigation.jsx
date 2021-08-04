@@ -8,7 +8,8 @@ export default () => (
       bottom: 0,
       width: "100vw",
       height: "64px",
-      borderTop: "2px solid #f9f9f9"
+      borderTop: "2px solid #f9f9f9",
+      backgroundColor: "#36454F"
     }}
   >
     <div
@@ -22,13 +23,13 @@ export default () => (
       }}
     >
       <Link href="/">
-        <a>はじめに</a>
+        <a style={{ color: "#ffffff" }}>はじめに</a>
       </Link>
       <Link href="/idol">
-        <a>女の子</a>
+        <a style={{ color: "#ffffff" }}>女の子</a>
       </Link>
       <Link href="/tags">
-        <a>本来</a>
+        <a style={{ color: "#ffffff" }}>本来</a>
       </Link>
     </div>
   </div>

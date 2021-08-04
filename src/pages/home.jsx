@@ -32,7 +32,7 @@ const Card = ({ item }) => {
   return (
     <div>
       <p>{item.title}</p>
-      <p>{item.modified}</p>
+      <img src={item.attachments[25].thumbnails.thumbnail} alt={item.modified} />
     </div>
   );
 };
