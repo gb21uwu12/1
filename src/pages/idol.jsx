@@ -1,5 +1,5 @@
 import * as React from "react";
-import { posts } from "../api";
+import { girls } from "../api";
 /* ADD IMPORTS FROM TODO ON THE NEXT LINE */
 
 /**
