@@ -18,9 +18,14 @@ to this section's matching END comment to see page-specific styles.
 /* Basic page style resets */
 * {
   box-sizing: border-box;
-  font-family: 
+  font-family: monospace;
 }
 
 [hidden] {
   display: none !important;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
 }
