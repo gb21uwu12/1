@@ -1,5 +1,5 @@
 import * as React from "react";
-import { tags } from "../api";
+import { tagged } from "../api";
 /* ADD IMPORTS FROM TODO ON THE NEXT LINE */
 
 /**
@@ -12,9 +12,9 @@ export default function Tags() {
   const [tags, setTags] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(tags)
+    fetch(tagged)
       .then(response => response.json())
-      .then(data => console.log(data.tags));
+      .then(data => setTags(data.tags));
   }, []);
 
   return (
@@ -39,7 +39,7 @@ export default function Tags() {
         }}
       >
         {tags.map(item => (
-          <Card item={item}/ >
+          <Card item={item} />
         ))}
       </div>
     </>
@@ -47,7 +47,6 @@ export default function Tags() {
 }
 
 const Card = ({ item }) => {
-          console.log(item)
   return (
     <div
       style={{
@@ -59,8 +58,8 @@ const Card = ({ item }) => {
       }}
     >
       <img
-        src={item.post_thumbnail.URL}
-        alt={item.modified}
+        src={item.description}
+        alt={item.name}
         style={{ border: "2px solid #f9f9f9", height: "250px" }}
       />
       <div
@@ -80,7 +79,7 @@ const Card = ({ item }) => {
             fontSize: "1.2rem"
           }}
         >
-          {item.title}
+          {item.name}
         </h3>
       </div>
     </div>

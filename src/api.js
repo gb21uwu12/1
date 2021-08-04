@@ -3,5 +3,5 @@ export const posts =
 
 export const girls = "";
 
-export const tags =
-  "https://public-api.wordpress.com/rest/v1/sites/niggastash.wordpress.com/tags/";
+export const tagged =
+  "https://public-api.wordpress.com/rest/v1/sites/gb21uwu12.wordpress.com/tags/";
