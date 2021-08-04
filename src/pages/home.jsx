@@ -19,10 +19,29 @@ export default function Home() {
 
   return (
     <>
-      <h1>はじめに</h1>
-      {post.map(item => (
-        <Card item={item} key={item.ID} />
-      ))}
+      <h1
+        style={{
+          color: "#ffffff",
+          fontWeight: 900,
+          alignSelf: "start",
+          marginBottom: "1em"
+        }}
+      >
+        はじめに
+      </h1>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          alignItems: "start"
+        }}
+      >
+        {post.map(item => (
+          <Card item={item} key={item.ID} />
+        ))}
+      </div>
     </>
   );
 }
@@ -30,9 +49,22 @@ export default function Home() {
 const Card = ({ item }) => {
   console.log(item);
   return (
-    <div>
-      <p>{item.title}</p>
-      <img src={item.attachments[25].thumbnails.thumbnail} alt={item.modified} />
+    <div style={{ display: "flex", flexDirection: "row", margin: '0.5em' }}>
+      <div
+        style={{
+          borderTop: "2px solid #f9f9f9",
+          borderLeft: "2px solid #f9f9f9",
+          borderBottom: "2px solid #f9f9f9",
+          padding: "1em"
+        }}
+      >
+        <h3 style={{ color: "#ffffff", fontWeight: 900 }}>{item.title}</h3>
+      </div>
+      <img
+        src={item.post_thumbnail.URL}
+        alt={item.modified}
+        style={{ border: "2px solid #f9f9f9", width: "200px" }}
+      />
     </div>
   );
 };
