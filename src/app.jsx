@@ -35,7 +35,6 @@ export default function Home() {
             flexWrap: "wrap",
             justifyContent: "center",
             alignItems: "center",
-            maxWidth: "720px",
             margin: "2em"
           }}
         >

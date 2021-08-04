@@ -49,7 +49,12 @@ export default function Home() {
 const Card = ({ item }) => {
   console.log(item);
   return (
-    <div style={{ display: "flex", flexDirection: "row", margin: '0.5em' }}>
+    <div style={{ display: "flex", flexDirection: "row", margin: '0.5em', maxWidth: '300px' }}>
+           <img
+        src={item.post_thumbnail.URL}
+        alt={item.modified}
+        style={{ border: "2px solid #f9f9f9", height: "200px" }}
+      />
       <div
         style={{
           borderTop: "2px solid #f9f9f9",
@@ -60,11 +65,6 @@ const Card = ({ item }) => {
       >
         <h3 style={{ color: "#ffffff", fontWeight: 900 }}>{item.title}</h3>
       </div>
-      <img
-        src={item.post_thumbnail.URL}
-        alt={item.modified}
-        style={{ border: "2px solid #f9f9f9", width: "200px" }}
-      />
     </div>
   );
 };
