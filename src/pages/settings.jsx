@@ -7,12 +7,12 @@ import * as React from "react";
 * This component is attached to the /about path in router.jsx
 */
 
-export default function Home() {
+export default function Settings() {
   /* DECLARE STYLE AND TRIGGER FOR WIGGLE EFFECT FROM TODO ON NEXT LINE */
   
   return (
     <>
-      Home
+      Settings
     </>
   );
 }
