@@ -47,23 +47,31 @@ export default function Home() {
 }
 
 const Card = ({ item }) => {
-  console.log(item);
   return (
-    <div style={{ display: "flex", flexDirection: "row", margin: '0.5em', maxWidth: '300px' }}>
-           <img
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        margin: "0.5em",
+        maxWidth: "300px",
+        width: "300px"
+      }}
+    >
+      <img
         src={item.post_thumbnail.URL}
         alt={item.modified}
-        style={{ border: "2px solid #f9f9f9", height: "200px" }}
+        style={{ border: "2px solid #f9f9f9", height: "250px" }}
       />
       <div
         style={{
           borderTop: "2px solid #f9f9f9",
-          borderLeft: "2px solid #f9f9f9",
+          borderRight: "2px solid #f9f9f9",
           borderBottom: "2px solid #f9f9f9",
-          padding: "1em"
+          padding: "1em",
+          flex: 1
         }}
       >
-        <h3 style={{ color: "#ffffff", fontWeight: 900 }}>{item.title}</h3>
+        <h3 style={{ color: "#ffffff", fontWeight: 900, textAlign: 'end', fontSize: '1.2rem' }}>{item.title}</h3>
       </div>
     </div>
   );

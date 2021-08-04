@@ -41,6 +41,7 @@ export default function Home() {
           {/* Router specifies which component to insert here as the main content */}
           <PageRouter />
         </div>
+        <div style={{height: '64px'}} />
         <Navigation />
       </main>
     </Router>
