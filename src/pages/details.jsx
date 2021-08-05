@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "wouter";
 import { posts } from "../api";
 /* ADD IMPORTS FROM TODO ON THE NEXT LINE */
 
@@ -12,7 +13,7 @@ export default function Details(params) {
   const [post, setPost] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(`https://public-api.wordpress.com/rest/v1.1/sites/gb21uwu12.wordpress.com/tags/slug:${params.slug}`)
+    fetch(`https://public-api.wordpress.com/rest/v1.2/sites/gb21uwu12.wordpress.com/posts?tag:${params.slug}`)
       .then(response => response.json())
       .then(data => setPost(data.posts));
   }, []);
@@ -27,7 +28,7 @@ export default function Details(params) {
           marginBottom: "1em"
         }}
       >
-        はじめに
+        {params.slug}
       </h1>
       <div
         style={{
@@ -39,7 +40,11 @@ export default function Details(params) {
         }}
       >
         {post.map(item => (
-          <Card item={item} key={item.ID} />
+          <Link key={item.ID} href={`/post/${item.slug}`}>
+            <a>
+              <Card item={item} />
+            </a>
+          </Link>
         ))}
       </div>
     </>

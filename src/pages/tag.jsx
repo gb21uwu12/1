@@ -60,7 +60,7 @@ const Card = ({ item }) => {
       <img
         src={item.description}
         alt={item.name}
-        style={{ border: "2px solid #f9f9f9", height: "50px" }}
+        style={{ border: "2px solid #f9f9f9", height: "75px" }}
       />
       <div
         style={{

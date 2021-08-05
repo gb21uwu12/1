@@ -41,8 +41,9 @@ export default function Idol() {
       >
         {tags.map(item => (
           <Link href={`/details/${item.slug}`} key={item.name}>
-            
-            <Card item={item} />
+            <a>
+              <Card item={item} />
+            </a>
           </Link>
         ))}
       </div>

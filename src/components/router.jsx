@@ -26,7 +26,7 @@ export default () => (
     <Route path="/idol" component={Idol} />
     <Route path="/details/:slug">
       {params => {
-        /* { name: "alex" } */
+        return <Details slug={params.slug} />;
       }}
     </Route>
     ;
