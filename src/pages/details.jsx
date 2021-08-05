@@ -1,5 +1,5 @@
 import * as React from "react";
-import { category } from "../api";
+import { posts } from "../api";
 /* ADD IMPORTS FROM TODO ON THE NEXT LINE */
 
 /**
@@ -7,14 +7,14 @@ import { category } from "../api";
  * This component is attached to the /about path in router.jsx
  */
 
-export default function Tags() {
+export default function Details(slug) {
   /* DECLARE STYLE AND TRIGGER FOR WIGGLE EFFECT FROM TODO ON NEXT LINE */
-  const [categories, setCategory] = React.useState([]);
+  const [post, setPost] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(category)
+    fetch(posts)
       .then(response => response.json())
-      .then(data => setCategory(data.categories));
+      .then(data => setPost(data.posts));
   }, []);
 
   return (
@@ -27,7 +27,7 @@ export default function Tags() {
           marginBottom: "1em"
         }}
       >
-        本来
+        はじめに
       </h1>
       <div
         style={{
@@ -38,8 +38,8 @@ export default function Tags() {
           alignItems: "start"
         }}
       >
-        {categories.map(item => (
-          <Card item={item} key={item.name}/>
+        {post.map(item => (
+          <Card item={item} key={item.ID} />
         ))}
       </div>
     </>
@@ -53,14 +53,14 @@ const Card = ({ item }) => {
         display: "flex",
         flexDirection: "row",
         margin: "0.5em",
-        maxWidth: "125px",
-        width: "125px"
+        maxWidth: "300px",
+        width: "300px"
       }}
     >
       <img
-        src={item.description}
-        alt={item.name}
-        style={{ border: "2px solid #f9f9f9", height: "50px" }}
+        src={item.post_thumbnail.URL}
+        alt={item.modified}
+        style={{ border: "2px solid #f9f9f9", height: "250px" }}
       />
       <div
         style={{
@@ -71,16 +71,7 @@ const Card = ({ item }) => {
           flex: 1
         }}
       >
-        <h3
-          style={{
-            color: "#ffffff",
-            fontWeight: 900,
-            textAlign: "end",
-            fontSize: "1.2rem"
-          }}
-        >
-          {item.name}
-        </h3>
+        <h3 style={{ color: "#ffffff", fontWeight: 900, textAlign: 'end', fontSize: '1.2rem' }}>{item.title}</h3>
       </div>
     </div>
   );

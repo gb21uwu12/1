@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "wouter";
 import { posts } from "../api";
 /* ADD IMPORTS FROM TODO ON THE NEXT LINE */
 
@@ -39,7 +40,9 @@ export default function Home() {
         }}
       >
         {post.map(item => (
-          <Card item={item} key={item.ID} />
+          <Link>
+            <Card item={item} key={item.ID} />
+          </Link>
         ))}
       </div>
     </>
@@ -71,7 +74,16 @@ const Card = ({ item }) => {
           flex: 1
         }}
       >
-        <h3 style={{ color: "#ffffff", fontWeight: 900, textAlign: 'end', fontSize: '1.2rem' }}>{item.title}</h3>
+        <h3
+          style={{
+            color: "#ffffff",
+            fontWeight: 900,
+            textAlign: "end",
+            fontSize: "1.2rem"
+          }}
+        >
+          {item.title}
+        </h3>
       </div>
     </div>
   );
