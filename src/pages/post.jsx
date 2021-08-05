@@ -42,7 +42,10 @@ export default function Post(params) {
           alignItems: "start"
         }}
       >
-        <Link href={`/details/${post.tags[0]}`}></Link>
+        <div
+          dangerouslySetInnerHTML={{ __html: post.content }}
+          style={{ margin: 0, padding: 0 }}
+        />
       </div>
     </>
   );

@@ -1,5 +1,6 @@
 import * as React from "react";
 import { tagged } from "../api";
+import { Link } from "wouter";
 /* ADD IMPORTS FROM TODO ON THE NEXT LINE */
 
 /**
@@ -39,7 +40,10 @@ export default function Idol() {
         }}
       >
         {tags.map(item => (
-          <Card item={item} key={item.name}/>
+          <Link href={`/details/${item.slug}`} key={item.name}>
+            
+            <Card item={item} />
+          </Link>
         ))}
       </div>
     </>

@@ -7,12 +7,12 @@ import { posts } from "../api";
  * This component is attached to the /about path in router.jsx
  */
 
-export default function Details(slug) {
+export default function Details(params) {
   /* DECLARE STYLE AND TRIGGER FOR WIGGLE EFFECT FROM TODO ON NEXT LINE */
   const [post, setPost] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(posts)
+    fetch(`https://public-api.wordpress.com/rest/v1.1/sites/gb21uwu12.wordpress.com/tags/slug:${params.slug}`)
       .then(response => response.json())
       .then(data => setPost(data.posts));
   }, []);
