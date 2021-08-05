@@ -1,5 +1,5 @@
 import * as React from "react";
-import { tagged } from "../api";
+import { category } from "../api";
 /* ADD IMPORTS FROM TODO ON THE NEXT LINE */
 
 /**
@@ -9,12 +9,12 @@ import { tagged } from "../api";
 
 export default function Tags() {
   /* DECLARE STYLE AND TRIGGER FOR WIGGLE EFFECT FROM TODO ON NEXT LINE */
-  const [tags, setTags] = React.useState([]);
+  const [categories, setCategory] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(tagged)
+    fetch(category)
       .then(response => response.json())
-      .then(data => setTags(data.tags));
+      .then(data => setCategory(data.categories));
   }, []);
 
   return (
@@ -38,8 +38,8 @@ export default function Tags() {
           alignItems: "start"
         }}
       >
-        {tags.map(item => (
-          <Card item={item} />
+        {categories.map(item => (
+          <Card item={item} key={item.name}/>
         ))}
       </div>
     </>
