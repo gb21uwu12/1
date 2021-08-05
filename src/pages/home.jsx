@@ -40,8 +40,10 @@ export default function Home() {
         }}
       >
         {post.map(item => (
-          <Link>
-            <Card item={item} key={item.ID} />
+          <Link key={item.ID} href={`/post/${item.slug}`}>
+            <a>
+              <Card item={item} />
+            </a>
           </Link>
         ))}
       </div>

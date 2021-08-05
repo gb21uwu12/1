@@ -1,5 +1,6 @@
 import * as React from "react";
 import { posts } from "../api";
+import { Link } from "wouter";
 /* ADD IMPORTS FROM TODO ON THE NEXT LINE */
 
 /**
@@ -7,14 +8,17 @@ import { posts } from "../api";
  * This component is attached to the /about path in router.jsx
  */
 
-export default function Post(id) {
+export default function Post(params) {
   /* DECLARE STYLE AND TRIGGER FOR WIGGLE EFFECT FROM TODO ON NEXT LINE */
   const [post, setPost] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(posts)
+    fetch(
+      `https://public-api.wordpress.com/rest/v1.1/sites/gb21uwu12.wordpress.com/posts/slug:${params.id}`
+    )
       .then(response => response.json())
-      .then(data => setPost(data.posts));
+      .then(data => setPost(data));
+    console.log(post);
   }, []);
 
   return (
@@ -27,7 +31,7 @@ export default function Post(id) {
           marginBottom: "1em"
         }}
       >
-        はじめに
+        {post.title}
       </h1>
       <div
         style={{
@@ -38,41 +42,8 @@ export default function Post(id) {
           alignItems: "start"
         }}
       >
-        {post.map(item => (
-          <Card item={item} key={item.ID} />
-        ))}
+        <Link href={`/details/${post.tags[0]}`}></Link>
       </div>
     </>
   );
 }
-
-const Card = ({ item }) => {
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        margin: "0.5em",
-        maxWidth: "300px",
-        width: "300px"
-      }}
-    >
-      <img
-        src={item.post_thumbnail.URL}
-        alt={item.modified}
-        style={{ border: "2px solid #f9f9f9", height: "250px" }}
-      />
-      <div
-        style={{
-          borderTop: "2px solid #f9f9f9",
-          borderRight: "2px solid #f9f9f9",
-          borderBottom: "2px solid #f9f9f9",
-          padding: "1em",
-          flex: 1
-        }}
-      >
-        <h3 style={{ color: "#ffffff", fontWeight: 900, textAlign: 'end', fontSize: '1.2rem' }}>{item.title}</h3>
-      </div>
-    </div>
-  );
-};
