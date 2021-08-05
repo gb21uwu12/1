@@ -13,7 +13,7 @@ export default function Details(params) {
   const [post, setPost] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(`https://public-api.wordpress.com/rest/v1.2/sites/gb21uwu12.wordpress.com/posts?tag:${params.slug}`)
+    fetch(`https://public-api.wordpress.com/rest/v1.2/sites/gb21uwu12.wordpress.com/posts?tag=${params.slug}`)
       .then(response => response.json())
       .then(data => setPost(data.posts));
   }, []);
